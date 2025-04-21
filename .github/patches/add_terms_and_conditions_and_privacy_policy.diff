@@ -1,0 +1,51 @@
+diff --git a/flutter/lib/desktop/pages/install_page.dart b/flutter/lib/desktop/pages/install_page.dart
+index 5bf6baf..3e371ea 100644
+--- a/flutter/lib/desktop/pages/install_page.dart
++++ b/flutter/lib/desktop/pages/install_page.dart
+@@ -184,17 +184,36 @@ class _InstallPageBodyState extends State<_InstallPageBody>
+                         children: [
+                           Text(translate('agreement_tip'))
+                               .marginOnly(bottom: em),
++                          // New Terms and Conditions link added here
+                           InkWell(
+                             hoverColor: Colors.transparent,
+                             onTap: () => launchUrlString(
+-                                'https://rustdesk.com/privacy.html'),
++                                'https://www.mylocalpcrepair.co.uk/terms-and-conditions/'),
+                             child: Tooltip(
+-                              message: 'https://rustdesk.com/privacy.html',
++                              message: 'https://www.mylocalpcrepair.co.uk/terms-and-conditions/',
+                               child: Row(children: [
+                                 Icon(Icons.launch_outlined, size: 16)
+                                     .marginOnly(right: 5),
+                                 Text(
+-                                  translate('End-user license agreement'),
++                                  translate('Terms and Conditions'),
++                                  style: const TextStyle(
++                                      decoration: TextDecoration.underline),
++                                )
++                              ]),
++                            ),
++                          ).marginOnly(bottom: em),
++                          // Privacy and Cookie Policy Link
++                          InkWell(
++                            hoverColor: Colors.transparent,
++                            onTap: () => launchUrlString(
++                                'https://www.mylocalpcrepair.co.uk/privacy-and-cookie-policy/'),
++                            child: Tooltip(
++                              message: 'https://www.mylocalpcrepair.co.uk/privacy-and-cookie-policy/',
++                              child: Row(children: [
++                                Icon(Icons.launch_outlined, size: 16)
++                                    .marginOnly(right: 5),
++                                Text(
++                                  translate('Privacy and Cookie Policy'),
+                                   style: const TextStyle(
+                                       decoration: TextDecoration.underline),
+                                 )
+@@ -271,4 +290,4 @@ class _InstallPageBodyState extends State<_InstallPageBody>
+       controller.text = join(install_path, await bind.mainGetAppName());
+     }
+   }
+-}
++}
+\ No newline at end of file
