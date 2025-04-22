@@ -178,6 +178,16 @@ jobs:
         run: |
           Invoke-WebRequest -Uri https://raw.githubusercontent.com/mlpcr/rdgen/refs/heads/master/.github/patches/add_terms_and_conditions_and_privacy_policy.diff -OutFile add_terms_and_conditions_and_privacy_policy.diff
           git apply add_terms_and_conditions_and_privacy_policy.diff
+
+      - name: change some text 
+        continue-on-error: true 
+        shell: bash 
+        run: | 
+          # ./src/lang/en.rs 
+          sed -i 's/Connecting to the RustDesk network.../Connecting to the My Local PC Repair network.../' ./src/lang/en.rs 
+          sed -i 's/("Slogan_tip", "Made with heart in this chaotic world!")/("Slogan_tip", "My Local PC Repair - Call-Out Computer Repair and Tech Support In Shrewsbury, Shropshire, UK")/' ./src/lang/en.rs 
+          sed -i 's/("agreement_tip", "By starting the installation, you accept the license agreement.")/("agreement_tip", "By using this application, you accept and agree to the following..")/' ./src/lang/en.rs 
+          sed -i 's/("powered_by_me", "Powered by RustDesk")/("powered_by_me", "Powered by My Local PC Repair")/' ./src/lang/en.rs
           
       - name: change appname to custom
         if: inputs.appname != 'rustdesk'
