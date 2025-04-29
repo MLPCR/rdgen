@@ -1,0 +1,29 @@
+diff --git a/flutter/lib/mobile/pages/settings_page.dart b/flutter/lib/mobile/pages/settings_page.dart
+index 83cfa2f..a538170 100644
+--- a/flutter/lib/mobile/pages/settings_page.dart
++++ b/flutter/lib/mobile/pages/settings_page.dart
+@@ -809,12 +809,18 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
+                     child: Text(_fingerprint),
+                   ),
+                   leading: Icon(Icons.fingerprint)),
+-            SettingsTile(
+-              title: Text(translate("Privacy Statement")),
+-              onPressed: (context) =>
+-                  launchUrlString('https://rustdesk.com/privacy.html'),
+-              leading: Icon(Icons.privacy_tip),
+-            )
++			SettingsTile(
++			  title: Text(translate("Privacy and Cookie Policy")),
++			  onPressed: (context) => launchUrlString(
++				  'https://www.mylocalpcrepair.co.uk/privacy-and-cookie-policy/'),
++			  leading: Icon(Icons.privacy_tip),
++			),
++			SettingsTile(
++			  title: Text(translate("Terms and Conditions")),
++			  onPressed: (context) => launchUrlString(
++				  'https://www.mylocalpcrepair.co.uk/terms-and-conditions/'),
++			  leading: Icon(Icons.privacy_tip),
++			),
+           ],
+         ),
+       ],
