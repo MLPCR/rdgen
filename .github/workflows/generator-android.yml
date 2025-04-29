@@ -313,6 +313,12 @@ jobs:
           sed -i '/adaptive_icon_foreground:/a \ \ adaptive_icon_foreground_inset: 32' ./flutter/pubspec.yaml
           sed -i '/ic_launcher_background/d' ./flutter/android/app/src/main/res/values/colors.xml
 
+      - name: add terms and conditions and privacy policy to android client
+        continue-on-error: true
+        run: |
+          wget https://raw.githubusercontent.com/MLPCR/rdgen/refs/heads/master/.github/patches/add_terms_and_conditions_and_privacy_policy_to_android_client.diff
+          git apply add_terms_and_conditions_and_privacy_policy_to_android_client.diff
+          
       - name: set server, key, and apiserver
         continue-on-error: true
         shell: bash
